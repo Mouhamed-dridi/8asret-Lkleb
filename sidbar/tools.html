@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tools | Smart Shiba Scholar</title>
+    <link rel="stylesheet" href="../index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            padding-top: 80px;
+            background-color: var(--bg-color);
+            background-image:
+                linear-gradient(var(--grid-color) 2px, transparent 2px),
+                linear-gradient(90deg, var(--grid-color) 2px, transparent 2px);
+            background-size: 40px 40px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: white;
+            border-bottom: var(--border-width) solid var(--text-black);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: capitalize;
+            color: var(--text-black);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: var(--text-black);
+        }
+
+        .sidebar {
+            position: fixed;
+            left: 2rem;
+            top: 120px;
+            width: 90px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 900;
+        }
+
+        .sidebar-item {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: 4px 4px 0px 0px var(--text-black);
+            cursor: pointer;
+            transition: all 0.1s ease;
+            text-decoration: none;
+        }
+
+        .sidebar-item i {
+            color: var(--text-black);
+            font-size: 1.5rem;
+        }
+
+        .sidebar-item:hover {
+            background: var(--primary-yellow);
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px var(--text-black);
+        }
+
+        main {
+            margin-left: 140px;
+            padding: 2rem;
+            max-width: 1200px;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-bottom: 4rem;
+            display: inline-block;
+            background: var(--primary-yellow);
+            padding: 0.5rem 1.5rem;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: 6px 6px 0px 0px var(--text-black);
+            font-weight: 950;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 1024px) {
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Reusable Card Component */
+        .tool-card {
+            background: white;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--text-black);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: var(--text-black);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 12px 0px 0px var(--text-black);
+        }
+
+        .card-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #f0f0f0;
+            border-bottom: var(--border-width) solid var(--text-black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        /* Thematic Gradients for Placeholders */
+        .img-gpa {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+        }
+
+        .img-pomodoro {
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+        }
+
+        .img-cv {
+            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+        }
+
+        .img-intern {
+            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+        }
+
+        .img-ai {
+            background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
+        }
+
+        .img-planner {
+            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            font-size: 1.5rem;
+            font-weight: 850;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .card-content p {
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .btn-container {
+            margin-top: auto;
+        }
+
+        .brutal-btn {
+            display: inline-block;
+            background: var(--primary-yellow);
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: 4px 4px 0px 0px var(--text-black);
+            padding: 0.75rem 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .tool-card:hover .brutal-btn {
+            transform: scale(1.05);
+            box-shadow: 6px 6px 0px 0px var(--text-black);
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <a href="../index.html" class="logo">Smart Shiba Scholar</a>
+        <div class="nav-links">
+            <a href="tools.html">SERVICES</a>
+            <a href="../navbar/about.html">ABOUT</a>
+            <a href="../blog/index.html">TRICKS</a>
+            <a href="../navbar/contact.html">CONTACT</a>
+        </div>
+        <a href="#" class="brutal-btn">JOIN NOW</a>
+    </nav>
+
+    <div class="sidebar">
+        <a href="tools.html" class="sidebar-item" title="Tools"><i class="fas fa-toolbox"></i></a>
+        <a href="library.html" class="sidebar-item" title="Library"><i class="fas fa-book"></i></a>
+        <a href="doawalde.html" class="sidebar-item" title="Download"><i class="fas fa-download"></i></a>
+        <a href="youtube.html" class="sidebar-item" title="Youtube"><i class="fab fa-youtube"></i></a>
+        <a href="discord.html" class="sidebar-item" title="Discord"><i class="fab fa-discord"></i></a>
+    </div>
+
+    <main>
+        <h2 class="section-title">Scholar Tools</h2>
+
+        <div class="tools-grid">
+            <!-- 1. GPA Calculator -->
+            <a href="#" class="tool-card">
+                <div class="card-image img-gpa">
+                    <i class="fas fa-calculator"></i>
+                </div>
+                <div class="card-content">
+                    <h3>GPA Calculator</h3>
+                    <p>Instantly calculate your semester GPA and track performance.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">OPEN TOOL</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 2. Pomodoro Timer -->
+            <a href="#" class="tool-card">
+                <div class="card-image img-pomodoro">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Pomodoro Timer</h3>
+                    <p>Focus sessions with structured break cycles.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">OPEN TOOL</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 3. CV Builder -->
+            <a href="#" class="tool-card">
+                <div class="card-image img-cv">
+                    <i class="fas fa-file-invoice"></i>
+                </div>
+                <div class="card-content">
+                    <h3>CV & Resume Builder</h3>
+                    <p>Create professional ATS-ready resumes in minutes.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">OPEN TOOL</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 4. Internship Tracker -->
+            <a href="#" class="tool-card">
+                <div class="card-image img-intern">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="card-content">
+                    <h3>Internship Tracker</h3>
+                    <p>Track applications, deadlines, and responses.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">OPEN TOOL</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 5. AI Assistant -->
+            <a href="#" class="tool-card">
+                <div class="card-image img-ai">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="card-content">
+                    <h3>AI Study Assistant</h3>
+                    <p>Ask questions, summarize notes, generate quizzes.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">OPEN TOOL</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 6. Project Planner -->
+            <a href="#" class="tool-card">
+                <div class="card-image img-planner">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="card-content">
+                    <h3>PFE Manager</h3>
+                    <p>Manage tasks, milestones, and deadlines easily.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">OPEN TOOL</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </main>
+
+</body>
+
+</html>
