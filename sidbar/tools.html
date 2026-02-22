@@ -145,42 +145,18 @@
             box-shadow: 12px 12px 0px 0px var(--text-black);
         }
 
-        .card-image {
+        /* Updated Card Image Style for real assets */
+        .card-image img {
             width: 100%;
-            aspect-ratio: 16/9;
-            background: #f0f0f0;
-            border-bottom: var(--border-width) solid var(--text-black);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            position: relative;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* Thematic Gradients for Placeholders */
-        .img-gpa {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+        .card-image i {
+            display: none;
         }
 
-        .img-pomodoro {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
-        }
-
-        .img-cv {
-            background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
-        }
-
-        .img-intern {
-            background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
-        }
-
-        .img-ai {
-            background: linear-gradient(135deg, #cfd9df 0%, #e2ebf0 100%);
-        }
-
-        .img-planner {
-            background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
-        }
+        /* Hide icons when using images */
 
         .card-content {
             padding: 1.5rem;
@@ -190,10 +166,11 @@
         }
 
         .card-content h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 850;
             margin-bottom: 0.75rem;
             text-transform: uppercase;
+            line-height: 1.2;
         }
 
         .card-content p {
@@ -201,6 +178,7 @@
             line-height: 1.4;
             margin-bottom: 1.5rem;
             color: #333;
+            font-size: 0.95rem;
         }
 
         .btn-container {
@@ -250,84 +228,84 @@
         <h2 class="section-title">Scholar Tools</h2>
 
         <div class="tools-grid">
-            <!-- 1. GPA Calculator -->
+            <!-- 1. Tome Presentation AI -->
             <a href="#" class="tool-card">
-                <div class="card-image img-gpa">
-                    <i class="fas fa-calculator"></i>
+                <div class="card-image">
+                    <img src="../assets/tools-image/tome-ai.jpg" alt="Tome AI">
                 </div>
                 <div class="card-content">
-                    <h3>GPA Calculator</h3>
-                    <p>Instantly calculate your semester GPA and track performance.</p>
+                    <h3>Tome Presentation AI</h3>
+                    <p>Generate stunning, narrative-driven presentations with advanced artificial intelligence.</p>
                     <div class="btn-container">
                         <span class="brutal-btn">OPEN TOOL</span>
                     </div>
                 </div>
             </a>
 
-            <!-- 2. Pomodoro Timer -->
+            <!-- 2. Office Online -->
             <a href="#" class="tool-card">
-                <div class="card-image img-pomodoro">
-                    <i class="fas fa-clock"></i>
+                <div class="card-image">
+                    <img src="../assets/tools-image/office.png" alt="Office Online">
                 </div>
                 <div class="card-content">
-                    <h3>Pomodoro Timer</h3>
-                    <p>Focus sessions with structured break cycles.</p>
+                    <h3>Office Word, Excel & PPT</h3>
+                    <p>Collaborate and create documents, spreadsheets, and slides online for free.</p>
                     <div class="btn-container">
                         <span class="brutal-btn">OPEN TOOL</span>
                     </div>
                 </div>
             </a>
 
-            <!-- 3. CV Builder -->
+            <!-- 3. Smart Graph with Napkin -->
             <a href="#" class="tool-card">
-                <div class="card-image img-cv">
-                    <i class="fas fa-file-invoice"></i>
+                <div class="card-image">
+                    <img src="../assets/tools-image/napkin.jpg" alt="Napkin AI">
                 </div>
                 <div class="card-content">
-                    <h3>CV & Resume Builder</h3>
-                    <p>Create professional ATS-ready resumes in minutes.</p>
+                    <h3>Smart Graph with Napkin</h3>
+                    <p>Transform your ideas into visual charts and diagrams instantly using smart sketching.</p>
                     <div class="btn-container">
                         <span class="brutal-btn">OPEN TOOL</span>
                     </div>
                 </div>
             </a>
 
-            <!-- 4. Internship Tracker -->
+            <!-- 4. Notebook LM -->
             <a href="#" class="tool-card">
-                <div class="card-image img-intern">
-                    <i class="fas fa-briefcase"></i>
+                <div class="card-image">
+                    <img src="../assets/tools-image/notebooklm.webp" alt="Notebook LM">
                 </div>
                 <div class="card-content">
-                    <h3>Internship Tracker</h3>
-                    <p>Track applications, deadlines, and responses.</p>
+                    <h3>Notebook LM</h3>
+                    <p>Personalized AI research assistant that understands your documents and sources.</p>
                     <div class="btn-container">
                         <span class="brutal-btn">OPEN TOOL</span>
                     </div>
                 </div>
             </a>
 
-            <!-- 5. AI Assistant -->
+            <!-- 5. Canva -->
             <a href="#" class="tool-card">
-                <div class="card-image img-ai">
-                    <i class="fas fa-robot"></i>
+                <div class="card-image">
+                    <img src="../assets/tools-image/canva.png" alt="Canva">
                 </div>
                 <div class="card-content">
-                    <h3>AI Study Assistant</h3>
-                    <p>Ask questions, summarize notes, generate quizzes.</p>
+                    <h3>Canva Design Suite</h3>
+                    <p>Design anything from student posters to social media graphics in minutes.</p>
                     <div class="btn-container">
                         <span class="brutal-btn">OPEN TOOL</span>
                     </div>
                 </div>
             </a>
 
-            <!-- 6. Project Planner -->
+            <!-- 6. Free Hosting -->
             <a href="#" class="tool-card">
-                <div class="card-image img-planner">
-                    <i class="fas fa-project-diagram"></i>
+                <div class="card-image">
+                    <img src="../assets/tools-image/netlify.jpg" alt="Netlify Hosting">
                 </div>
                 <div class="card-content">
-                    <h3>PFE Manager</h3>
-                    <p>Manage tasks, milestones, and deadlines easily.</p>
+                    <h3>Free Project Hosting</h3>
+                    <p>Deploy your PFE and student projects for free with lightning-fast hosting services.</p>
                     <div class="btn-container">
                         <span class="brutal-btn">OPEN TOOL</span>
                     </div>
