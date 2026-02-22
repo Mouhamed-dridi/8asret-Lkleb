@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8asret Lkleb | PFE Survival Hub</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Specific page layout tweaks */
+        body {
+            padding-top: 80px;
+            /* Space for sticky navbar */
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: white;
+            border-bottom: var(--border-width) solid var(--text-black);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 900;
+            text-transform: capitalize;
+            letter-spacing: -1px;
+            color: var(--text-black);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            color: var(--text-black);
+        }
+
+        .nav-links a:hover {
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        /* Sidebar implementation */
+        .sidebar {
+            position: fixed;
+            left: 2rem;
+            top: 120px;
+            width: 90px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            z-index: 900;
+        }
+
+        .sidebar-item {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: 4px 4px 0px 0px var(--text-black);
+            cursor: pointer;
+            transition: all 0.1s ease;
+            text-decoration: none;
+        }
+
+        .sidebar-item i {
+            color: var(--text-black);
+            font-size: 1.5rem;
+        }
+
+        .sidebar-item:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px var(--text-black);
+            background: var(--primary-yellow);
+        }
+
+        main {
+            margin-left: 140px;
+            padding: 2rem;
+        }
+
+        /* Hero styles */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+            padding: 4rem 0;
+        }
+
+        .hero-content {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: 12px 12px 0px 0px var(--text-black);
+            background: white;
+        }
+
+        h1 {
+            font-size: 4rem;
+            line-height: 1;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+        }
+
+        .highlight {
+            background: var(--primary-yellow);
+            padding: 0 0.5rem;
+            border: 2px solid var(--text-black);
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
+        }
+
+        .search-container {
+            position: relative;
+            max-width: 500px;
+            margin-bottom: 2rem;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1.25rem;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: 6px 6px 0px 0px var(--text-black);
+            font-size: 1rem;
+            font-weight: 700;
+            outline: none;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Blogs Section */
+        .blogs-section {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-transform: uppercase;
+            margin-bottom: 3rem;
+            display: inline-block;
+            background: var(--primary-yellow);
+            padding: 0.5rem 1rem;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: 4px 4px 0px 0px var(--text-black);
+        }
+
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .brutal-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: var(--primary-yellow);
+            border: var(--border-width) dashed var(--text-black);
+            padding: 30px;
+            text-align: center;
+            margin: 4rem 0;
+            box-shadow: 8px 8px 0px 0px var(--text-black);
+        }
+
+        .promo-banner h2 {
+            font-size: 2.2rem;
+            text-transform: uppercase;
+            font-weight: 900;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 2rem;
+            position: relative;
+            background: var(--text-black);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            clip-path: polygon(0% 15%, 5% 10%, 10% 12%, 15% 5%, 20% 10%, 25% 8%, 30% 15%, 35% 10%, 40% 12%, 45% 5%, 50% 10%, 55% 8%, 60% 15%, 65% 10%, 70% 12%, 75% 5%, 80% 10%, 85% 8%, 90% 15%, 95% 10%, 100% 12%, 100% 100%, 0% 100%);
+        }
+
+        .footer * {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">8asret Lkleb</div>
+        <div class="nav-links">
+            <a href="#">SERVICES</a>
+            <a href="#">ABOUT</a>
+            <a href="#">TRICKS</a>
+            <a href="#">CONTACT</a>
+        </div>
+        <a href="#" class="brutal-btn">JOIN NOW</a>
+    </nav>
+
+    <div class="sidebar">
+        <a href="#" class="sidebar-item" title="Tools"><i class="fas fa-toolbox"></i></a>
+        <a href="#" class="sidebar-item" title="Library"><i class="fas fa-book"></i></a>
+        <a href="#" class="sidebar-item" title="Community"><i class="fas fa-users"></i></a>
+        <a href="#" class="sidebar-item" title="Youtube"><i class="fab fa-youtube"></i></a>
+        <a href="#" class="sidebar-item" title="Discord"><i class="fab fa-discord"></i></a>
+    </div>
+
+    <main class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Unlock Your <br><span class="highlight">Academic Potential</span></h1>
+                <p class="hero-subtitle">The all-in-one platform designed for modern students to excel, connect, and
+                    grow.</p>
+
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Search for tools, guides, or blogs...">
+                </div>
+
+                <div class="hero-btns">
+                    <a href="#" class="brutal-btn blue">Explore Tools</a>
+                    <a href="#" class="brutal-btn">Get Started</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="assets/mascot.png" alt="Zen Shiba Mascot" class="floating">
+            </div>
+        </section>
+
+        <section class="blogs-section">
+            <h2 class="section-title">LATEST BLOGS & TRICKS</h2>
+            <div class="blogs-grid">
+                <article class="brutal-card">
+                    <h3>How to Master Exams</h3>
+                    <p>Proven strategies for stress-free preparation and high scores.</p>
+                    <br>
+                    <a href="#" class="brutal-btn">READ MORE</a>
+                </article>
+                <article class="brutal-card">
+                    <h3>Top 10 Productivity Tools</h3>
+                    <p>The essential apps every student needs in 2026.</p>
+                    <br>
+                    <a href="#" class="brutal-btn">READ MORE</a>
+                </article>
+                <article class="brutal-card">
+                    <h3>Networking for Students</h3>
+                    <p>Building meaningful connections before you graduate.</p>
+                    <br>
+                    <a href="#" class="brutal-btn">READ MORE</a>
+                </article>
+                <article class="brutal-card">
+                    <h3>PFE Survival Guide: Don't Cry Alone</h3>
+                    <p>How to finish your project without becoming a zombie at 4 AM.</p>
+                    <br>
+                    <a href="#" class="brutal-btn">READ MORE</a>
+                </article>
+                <article class="brutal-card">
+                    <h3>ChatGPT Hacks That Save Your PFE</h3>
+                    <p>Prompts that make your report write itself (shhh, don't tell the jury).</p>
+                    <br>
+                    <a href="#" class="brutal-btn">READ MORE</a>
+                </article>
+                <article class="brutal-card">
+                    <h3>Why Tunisian Coffee Beats Red Bull</h3>
+                    <p>Real student fuel tested during 3 all-nighters in a row.</p>
+                    <br>
+                    <a href="#" class="brutal-btn">READ MORE</a>
+                </article>
+            </div>
+        </section>
+
+        <section class="promo-banner">
+            <h2>8asret Lkleb is with you for PFE! 🚀🐶<br>
+                Free tools + blogs + Discord + Youtube = succeed and laugh at the same time!<br>
+                JOIN NOW before the train leaves and you regret it with the dog 😂🔥</h2>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 8asret Lkleb. All rights reserved.</p>
+            <p>Built for students, by legend-wait-for-it-ary developers.</p>
+        </div>
+    </footer>
+
+</body>
+
+</html>
