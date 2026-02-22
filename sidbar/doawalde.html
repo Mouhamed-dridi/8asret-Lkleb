@@ -4,12 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Download | 8asret Lkleb</title>
+    <title>Downloads | 8asret l kleb</title>
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         body {
             padding-top: 80px;
+            background-color: var(--bg-color);
+            background-image:
+                linear-gradient(var(--grid-color) 2px, transparent 2px),
+                linear-gradient(90deg, var(--grid-color) 2px, transparent 2px);
+            background-size: 40px 40px;
         }
 
         nav {
@@ -30,7 +35,7 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 900;
-            text-transform: capitalize;
+            text-transform: lowercase;
             color: var(--text-black);
             text-decoration: none;
         }
@@ -70,6 +75,7 @@
             box-shadow: 4px 4px 0px 0px var(--text-black);
             cursor: pointer;
             transition: all 0.1s ease;
+            text-decoration: none;
         }
 
         .sidebar-item i {
@@ -86,22 +92,120 @@
         main {
             margin-left: 140px;
             padding: 2rem;
+            max-width: 1200px;
         }
 
         .section-title {
-            font-size: 2.5rem;
+            font-size: 3rem;
             text-transform: uppercase;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             display: inline-block;
             background: var(--primary-yellow);
-            padding: 0.5rem 1rem;
+            padding: 0.5rem 1.5rem;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: 6px 6px 0px 0px var(--text-black);
+            font-weight: 950;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+        }
+
+        @media (max-width: 1024px) {
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Reusable Card Component */
+        .tool-card {
+            background: white;
+            border: var(--border-width) solid var(--text-black);
+            box-shadow: var(--shadow-offset) var(--shadow-offset) 0px 0px var(--text-black);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            color: var(--text-black);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 12px 12px 0px 0px var(--text-black);
+        }
+
+        .card-image {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #f0f0f0;
+            border-bottom: var(--border-width) solid var(--text-black);
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h3 {
+            font-size: 1.4rem;
+            font-weight: 850;
+            margin-bottom: 0.75rem;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .card-content p {
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 1.5rem;
+            color: #333;
+            font-size: 0.95rem;
+        }
+
+        .btn-container {
+            margin-top: auto;
+        }
+
+        .brutal-btn {
+            display: inline-block;
+            background: var(--primary-yellow);
             border: var(--border-width) solid var(--text-black);
             box-shadow: 4px 4px 0px 0px var(--text-black);
+            padding: 0.75rem 1.5rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            transition: all 0.2s ease;
+        }
+
+        .tool-card:hover .brutal-btn {
+            transform: scale(1.05);
+            box-shadow: 6px 6px 0px 0px var(--text-black);
         }
     </style>
 </head>
 
 <body>
+
     <nav>
         <a href="../index.html" class="logo">8asret l kleb</a>
         <div class="nav-links">
@@ -112,6 +216,7 @@
         </div>
         <a href="#" class="brutal-btn">JOIN NOW</a>
     </nav>
+
     <div class="sidebar">
         <a href="tools.html" class="sidebar-item" title="Tools"><i class="fas fa-toolbox"></i></a>
         <a href="library.html" class="sidebar-item" title="Library"><i class="fas fa-book"></i></a>
@@ -119,24 +224,136 @@
         <a href="youtube.html" class="sidebar-item" title="Youtube"><i class="fab fa-youtube"></i></a>
         <a href="discord.html" class="sidebar-item" title="Discord"><i class="fab fa-discord"></i></a>
     </div>
-    <main class="container">
-        <h2 class="section-title">Survival Resources</h2>
-        <div class="blogs-grid">
-            <div class="brutal-card">
-                <h3>PFE Guide PDF</h3>
-                <p>The ultimate survival handbook for Tunisian students.</p>
-                <br><a href="#" class="brutal-btn">DOWNLOAD</a>
-            </div>
-            <div class="brutal-card">
-                <h3>Latex Templates</h3>
-                <p>Ready-to-use professional Latex source files.</p>
-                <br><a href="#" class="brutal-btn">DOWNLOAD</a>
-            </div>
-            <div class="brutal-card">
-                <h3>Project Planner</h3>
-                <p>Excel/Sheets template to manage your 6-month journey.</p>
-                <br><a href="#" class="brutal-btn">DOWNLOAD</a>
-            </div>
+
+    <main>
+        <h2 class="section-title">Software Downloads</h2>
+
+        <div class="tools-grid">
+            <!-- 1. TIA Portal -->
+            <a href="#" class="tool-card">
+                <div class="card-image">
+                    <img src="../assets/software-image/TIA-Portal.jpg" alt="TIA Portal">
+                </div>
+                <div class="card-content">
+                    <h3>TIA Portal</h3>
+                    <p>Industrial automation engineering software by Siemens.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">DOWNLOAD</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 2. AutoCAD -->
+            <a href="#" class="tool-card">
+                <div class="card-image">
+                    <img src="../assets/software-image/autocad.jpg" alt="AutoCAD">
+                </div>
+                <div class="card-content">
+                    <h3>AutoCAD</h3>
+                    <p>The industry standard for 2D and 3D computer-aided design (CAD).</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">DOWNLOAD</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 3. SolidWorks -->
+            <a href="#" class="tool-card">
+                <div class="card-image">
+                    <img src="../assets/software-image/solidworks.jpeg" alt="SolidWorks">
+                </div>
+                <div class="card-content">
+                    <h3>SolidWorks</h3>
+                    <p>Powerful 3D modeling and engineering simulation software.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">DOWNLOAD</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 4. Packet Tracer -->
+            <a href="#" class="tool-card">
+                <div class="card-image">
+                    <img src="../assets/software-image/packet-tracer.jpeg" alt="Cisco Packet Tracer">
+                </div>
+                <div class="card-content">
+                    <h3>Cisco Packet Tracer</h3>
+                    <p>Network simulation tool for Cisco CCNA and beyond.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">DOWNLOAD</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 5. ANSYS -->
+            <a href="#" class="tool-card">
+                <div class="card-image">
+                    <img src="../assets/software-image/ansys.jpg" alt="ANSYS">
+                </div>
+                <div class="card-content">
+                    <h3>ANSYS</h3>
+                    <p>Advanced engineering simulation and finite element analysis.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">DOWNLOAD</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 6. ISIS Proteus -->
+            <a href="#" class="tool-card">
+                <div class="card-image">
+                    <img src="../assets/software-image/isis.webp" alt="ISIS Proteus">
+                </div>
+                <div class="card-content">
+                    <h3>ISIS Proteus</h3>
+                    <p>Electronic simulation and PCB design software suite.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">DOWNLOAD</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 7. GNS3 -->
+            <a href="#" class="tool-card">
+                <div class="card-image">
+                    <img src="../assets/software-image/GNS3.jpg" alt="GNS3">
+                </div>
+                <div class="card-content">
+                    <h3>GNS3</h3>
+                    <p>Graphical Network Simulator for complex network modeling.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">DOWNLOAD</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 8. Office 2019 -->
+            <a href="#" class="tool-card">
+                <div class="card-image">
+                    <img src="../assets/software-image/office2019.png" alt="Office 2019">
+                </div>
+                <div class="card-content">
+                    <h3>Microsoft Office 2019</h3>
+                    <p>The essential productivity suite: Word, Excel, and PowerPoint.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">DOWNLOAD</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 9. TIA V18 -->
+            <a href="#" class="tool-card">
+                <div class="card-image">
+                    <img src="../assets/software-image/tia.webp" alt="TIA V18">
+                </div>
+                <div class="card-content">
+                    <h3>TIA Portal V18</h3>
+                    <p>The latest version of the integrated engineering framework.</p>
+                    <div class="btn-container">
+                        <span class="brutal-btn">DOWNLOAD</span>
+                    </div>
+                </div>
+            </a>
         </div>
     </main>
 </body>
