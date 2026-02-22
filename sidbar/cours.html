@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YouTube Hub | 8asret l kleb</title>
+    <title>Courses & Certifications | 8asret l kleb</title>
     <link rel="stylesheet" href="../index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -109,7 +109,8 @@
 
         .tools-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(3, 1fr);
+            /* 3 columns for 6 cards */
             gap: 2.5rem;
             margin-bottom: 4rem;
         }
@@ -136,7 +137,6 @@
             display: flex;
             flex-direction: column;
             overflow: hidden;
-            position: relative;
         }
 
         .tool-card:hover {
@@ -155,7 +155,10 @@
         .card-image img {
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
+            /* better for logos */
+            padding: 1rem;
+            background: white;
         }
 
         .card-content {
@@ -195,9 +198,7 @@
 
         .brutal-btn {
             display: inline-block;
-            background: #ff0000;
-            /* YouTube Red */
-            color: white;
+            background: var(--primary-yellow);
             border: var(--border-width) solid var(--text-black);
             box-shadow: 4px 4px 0px 0px var(--text-black);
             padding: 0.75rem 1.5rem;
@@ -223,7 +224,7 @@
             <a href="cours.html">COURSES</a>
             <a href="../navbar/contact.html">CONTACT</a>
         </div>
-        <a href="#" class="brutal-btn" style="background: var(--primary-yellow); color: var(--text-black);">JOIN NOW</a>
+        <a href="#" class="brutal-btn">JOIN NOW</a>
     </nav>
 
     <div class="sidebar">
@@ -235,158 +236,107 @@
     </div>
 
     <main>
-        <h2 class="section-title">Educational YouTube</h2>
+        <h2 class="section-title">Courses & Certifications</h2>
 
         <div class="tools-grid">
-            <!-- 1. Tunichnology -->
-            <a href="https://www.youtube.com/@tunichnology" target="_blank" class="tool-card">
+            <!-- 1. StudyTN -->
+            <a href="https://www.studytn.com/" target="_blank" class="tool-card">
                 <div class="card-image">
-                    <img src="../assets/youtube-images/tunisichalogy.png" alt="Tunichnology">
+                    <img src="../assets/cours-images/study.png" alt="StudyTN">
                 </div>
                 <div class="card-content">
-                    <h3>Tunichnology</h3>
+                    <h3>StudyTN</h3>
                     <div class="tag-container">
-                        <span class="tag">bac info</span>
-                        <span class="tag">revision</span>
+                        <span class="tag">Tunisie</span>
+                        <span class="tag">PFE</span>
                     </div>
                     <div class="btn-container">
-                        <span class="brutal-btn">WATCH</span>
+                        <span class="brutal-btn">LEARN MORE</span>
                     </div>
                 </div>
             </a>
 
-            <!-- 2. MAMMIMIND -->
-            <a href="https://www.youtube.com/@MAMMIMIND" target="_blank" class="tool-card">
+            <!-- 2. Na9raw -->
+            <a href="https://na9raw.tn/" target="_blank" class="tool-card">
                 <div class="card-image">
-                    <img src="../assets/youtube-images/hammamind.jpg" alt="MAMMIMIND">
+                    <img src="../assets/cours-images/na9ra.png" alt="Na9raw">
                 </div>
                 <div class="card-content">
-                    <h3>MAMMIMIND</h3>
+                    <h3>Na9raw</h3>
                     <div class="tag-container">
-                        <span class="tag">Bac Info</span>
-                        <span class="tag">Révision</span>
+                        <span class="tag">Tunisie</span>
+                        <span class="tag">E-learning</span>
                     </div>
                     <div class="btn-container">
-                        <span class="brutal-btn">WATCH</span>
+                        <span class="brutal-btn">LEARN MORE</span>
                     </div>
                 </div>
             </a>
 
-            <!-- 3. Fok Nje7ek -->
-            <a href="https://www.youtube.com/@FokNje7ek" target="_blank" class="tool-card">
+            <!-- 3. Udemy -->
+            <a href="https://www.udemy.com/" target="_blank" class="tool-card">
                 <div class="card-image">
-                    <img src="../assets/youtube-images/fok nja7ak.jpg" alt="Fok Nje7ek">
+                    <img src="../assets/cours-images/udemy.png" alt="Udemy">
                 </div>
                 <div class="card-content">
-                    <h3>Fok Nje7ek</h3>
+                    <h3>Udemy</h3>
                     <div class="tag-container">
-                        <span class="tag">bac info</span>
-                        <span class="tag">revision</span>
+                        <span class="tag">Global</span>
+                        <span class="tag">Certification</span>
                     </div>
                     <div class="btn-container">
-                        <span class="brutal-btn">WATCH</span>
+                        <span class="brutal-btn">LEARN MORE</span>
                     </div>
                 </div>
             </a>
 
-            <!-- 4. CBT Nuggets -->
-            <a href="https://www.youtube.com/@cbtnuggets" target="_blank" class="tool-card">
+            <!-- 4. Coursera -->
+            <a href="https://www.coursera.org/" target="_blank" class="tool-card">
                 <div class="card-image">
-                    <img src="../assets/youtube-images/cbt.png" alt="CBT Nuggets">
+                    <img src="../assets/cours-images/unnamed (2).jpg" alt="Coursera">
                 </div>
                 <div class="card-content">
-                    <h3>CBT Nuggets</h3>
+                    <h3>Coursera</h3>
                     <div class="tag-container">
-                        <span class="tag">CCNA</span>
-                        <span class="tag">reseaux informatique</span>
+                        <span class="tag">University</span>
+                        <span class="tag">Degrees</span>
                     </div>
                     <div class="btn-container">
-                        <span class="brutal-btn">WATCH</span>
+                        <span class="brutal-btn">LEARN MORE</span>
                     </div>
                 </div>
             </a>
 
-            <!-- 5. NetworkChuck -->
-            <a href="https://www.youtube.com/@NetworkChuck" target="_blank" class="tool-card">
+            <!-- 5. Manara Tech -->
+            <a href="https://manara.tech/" target="_blank" class="tool-card">
                 <div class="card-image">
-                    <img src="../assets/youtube-images/networkshuck.jpg" alt="NetworkChuck">
+                    <img src="../assets/cours-images/manara.png" alt="Manara Tech">
                 </div>
                 <div class="card-content">
-                    <h3>NetworkChuck</h3>
+                    <h3>Manara Tech</h3>
                     <div class="tag-container">
-                        <span class="tag">CCNA</span>
-                        <span class="tag">reseaux informatique</span>
+                        <span class="tag">PFE</span>
+                        <span class="tag">Tech Training</span>
                     </div>
                     <div class="btn-container">
-                        <span class="brutal-btn">WATCH</span>
+                        <span class="brutal-btn">LEARN MORE</span>
                     </div>
                 </div>
             </a>
 
-            <!-- 6. FREE4ARAB -->
-            <a href="https://www.youtube.com/@FREE4ARAB1" target="_blank" class="tool-card">
+            <!-- 6. Google Skills -->
+            <a href="https://www.skills.google/" target="_blank" class="tool-card">
                 <div class="card-image">
-                    <img src="../assets/youtube-images/free4arbe.jpg" alt="FREE4ARAB">
+                    <img src="../assets/cours-images/skils.png" alt="Google Skills">
                 </div>
                 <div class="card-content">
-                    <h3>FREE4ARAB</h3>
+                    <h3>Google Skills</h3>
                     <div class="tag-container">
-                        <span class="tag">CCNA</span>
-                        <span class="tag">reseaux informatique</span>
+                        <span class="tag">Certification</span>
+                        <span class="tag">Professional</span>
                     </div>
                     <div class="btn-container">
-                        <span class="brutal-btn">WATCH</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 7. Med Aly Dridi -->
-            <a href="https://www.youtube.com/@medaly.dridiY" target="_blank" class="tool-card">
-                <div class="card-image">
-                    <img src="../assets/youtube-images/dridi.jpg" alt="Med Aly Dridi">
-                </div>
-                <div class="card-content">
-                    <h3>Med Aly Dridi</h3>
-                    <div class="tag-container">
-                        <span class="tag">development web</span>
-                        <span class="tag">programmation</span>
-                    </div>
-                    <div class="btn-container">
-                        <span class="brutal-btn">WATCH</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 8. Tensor Code -->
-            <a href="https://www.youtube.com/@tensorcode/videos" target="_blank" class="tool-card">
-                <div class="card-image">
-                    <img src="../assets/youtube-images/tonsorcode.jpg" alt="Tensor Code">
-                </div>
-                <div class="card-content">
-                    <h3>Tensor Code</h3>
-                    <div class="tag-container">
-                        <span class="tag">development web</span>
-                        <span class="tag">programmation</span>
-                    </div>
-                    <div class="btn-container">
-                        <span class="brutal-btn">WATCH</span>
-                    </div>
-                </div>
-            </a>
-
-            <!-- 9. Elyes Manai -->
-            <a href="https://www.youtube.com/@elyesmanai3850" target="_blank" class="tool-card">
-                <div class="card-image">
-                    <img src="../assets/youtube-images/elys mannai.jpg" alt="Elyes Manai">
-                </div>
-                <div class="card-content">
-                    <h3>Elyes Manai</h3>
-                    <div class="tag-container">
-                        <span class="tag">machine learning</span>
-                        <span class="tag">AI</span>
-                    </div>
-                    <div class="btn-container">
-                        <span class="brutal-btn">WATCH</span>
+                        <span class="brutal-btn">LEARN MORE</span>
                     </div>
                 </div>
             </a>
